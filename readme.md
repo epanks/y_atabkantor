@@ -16,7 +16,7 @@ ini adalah starter untuk membuat project baru termasuk didalamnya:
 4. vue
 
 Cara install:
-1. Clone the Repo ' git clone https://github.com/epanks/starter_project.git '
+1. Clone the Repo ` git clone https://github.com/epanks/starter_project.git `
 2. Run ` composer install `
 3. Save as the `.env.example` to `.env` dan sesuaikan dengan databasenya
 4. Run ` php artisan key:generate `
