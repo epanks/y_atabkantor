@@ -21,7 +21,8 @@ Cara install:
 3. Save as the `.env.example` to `.env` dan sesuaikan dengan databasenya
 4. Run ` php artisan key:generate `
 5. Run ` php artisan migrate `
-6. Done
+6. Run ` npm install `
+7. Done
 
 
 ## License
