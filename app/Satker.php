@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Satker extends Model
 {
     protected $table = 'satker';
+    public $timestamps = false;
     protected $fillable = [
         'kdsatker', 'nmsatker', 'balai_id'
     ];

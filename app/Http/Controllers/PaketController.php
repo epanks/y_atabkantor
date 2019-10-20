@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Paket;
 use App\Tblsatoutput;
 use App\Satker;
+use App\Tblkdoutput;
+use App\Paket7;
 //use DB;
 
 class PaketController extends Controller
@@ -17,7 +19,7 @@ class PaketController extends Controller
      */
     public function index()
     {
-        $data_paket=Paket::with('paket7','tblsatoutputs','satker')->paginate(10);
+        $data_paket=Paket::with('paket7','tblsatoutput','satker','tblkdoutput')->paginate(10);
                    //->get(['id','nmpaket','pagurmp','trgoutput','satoutput','trgoutcome','satoutcome','kdoutput','progres_keu','progres_fisik']);
         //dd($data_paket);
         return view('paket.index',compact('data_paket'));
@@ -30,7 +32,14 @@ class PaketController extends Controller
      */
     public function create()
     {
-        //
+        $data_paket=Paket::get();
+        $dtsatoutput=Tblsatoutput::get();
+        $dtkdoutput=Tblkdoutput::get();  
+        $dtsatker=Satker::get();
+        $dtpaket7=Paket7::get();
+        return view('paket.create',compact('dtsatker','dtsatoutput','data_paket','dtkdoutput','dtpaket7'));
+        //Paket::create($request->all());
+        // return redirect('/paket')->with('sukses', 'Data berhasil diinput');
     }
 
     /**
@@ -41,7 +50,9 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Paket::create($request->all());
+        Paket7::create($request->all());
+        return redirect('/paket')->with('sukses', 'Data berhasil diinput');
     }
 
     /**
@@ -63,11 +74,12 @@ class PaketController extends Controller
      */
     public function edit($id)
     {
-        $data_paket=Paket::with('paket7','tblsatoutputs','satker')->find($id);
-        $dtsatoutput=Tblsatoutput::get();  
+        $data_paket=Paket::with('paket7','tblsatoutput','satker','tblkdoutput')->find($id);
+        $dtsatoutput=Tblsatoutput::get();
+        $dtkdoutput=Tblkdoutput::get();  
         $dtsatker=Satker::get();     
         //dd($data_paket);  
-        return view('paket/edit', compact('data_paket','dtsatoutput','dtsatker'));
+        return view('paket/edit', compact('data_paket','dtsatoutput','dtsatker','dtkdoutput'));
     }
 
     /**

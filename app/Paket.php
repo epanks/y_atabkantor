@@ -21,7 +21,7 @@ class Paket extends Model
         return $this->hasOne(Paket7::class);
     }
 
-    public function tblsatoutputs()
+    public function tblsatoutput()
     {
         return $this->hasOne(Tblsatoutput::class,'satoutput','satoutput');
     }
@@ -29,6 +29,10 @@ class Paket extends Model
     public function satker()
     {
         return $this->belongsTo(Satker::class,'kdsatker','kdsatker');
+    }
+    public function tblkdoutput()
+    {
+        return $this->hasOne(Tblkdoutput::class,'kdoutput','kdoutput');
     }
 
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tblsatoutput extends Model
 {
     protected $table = 'tblsatoutput';
+    public $timestamps = false;
     protected $fillable = [
         'satoutput', 'nmsatoutput'
     ];

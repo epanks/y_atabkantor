@@ -12,13 +12,13 @@
         <form action="/paket/{{$data_paket->id}}/update"  method="POST">
             {{csrf_field()}}
             <div class="form-group{{$errors->has('satker') ? 'has-error' : ''}}">
-                    <label for="satker">Select Satuan Output</label>
-                    <select name="satker" id="satker" class="form-control">
-                        @foreach ($dtsatker as $output)
-                            <option value="{{$output->kdsatker}}" @if($output->kdsatker == $data_paket->kdsatker) selected @endif>{{$output->nmsatker}}</option>                            
-                        @endforeach
-                    </select>                
-                </div>
+                <label for="satker">Select Satker</label>
+                <select name="satker" id="satker" class="form-control">
+                    @foreach ($dtsatker as $output)
+                        <option value="{{$output->kdsatker}}" @if($output->kdsatker == $data_paket->kdsatker) selected @endif>{{$output->nmsatker}}</option>                            
+                    @endforeach
+                </select>                
+            </div>
             <div class="form-group">
                 <label for="nmpaket">Nama Paket</label>
                 <input name="nmpaket" type="text" class="form-control" id="nmpaket" placeholder="Nama Paket" value="{{$data_paket->nmpaket}}">
@@ -51,10 +51,10 @@
             </div>
             <div class="form-group{{$errors->has('satoutcome') ? 'has-error' : ''}}">
                 <label for="satoutcome">Select Satuan Outcome</label>
-                <select name="satoutput" id="satoutput" class="form-control">                        
-                    <option value="lt/dt">Liter/detik</option>
-                    <option value="ha">Hektar</option>
-                    <option value="apalagi">Apalagi ya</option>
+                <select name="satoutcome" id="satoutcome" class="form-control">                        
+                    <option value="lt/dt" @if($data_paket->satoutcome == "lt/dt")selected @endif>Liter/detik</option>
+                    <option value="ha" @if($data_paket->satoutcome == "ha")selected @endif>Hektar</option>
+                    <option value="apalagi" @if($data_paket->satoutcome == "apalagi")selected @endif>Apalagi ya</option>
                 </select>     
             </div>
             <div class="form-group{{$errors->has('progres_keu') ? 'has-error' : ''}}">
@@ -70,6 +70,14 @@
                 @if($errors->has('progres_fisik'))
                     <span class="help-block">{{$errors->first('progres_fisik')}}</span>
                 @endif
+            </div>
+            <div class="form-group{{$errors->has('kdoutput') ? 'has-error' : ''}}">
+                <label for="kdoutput">Select Kode Output</label>
+                <select name="kdoutput" id="kdoutput" class="form-control">
+                    @foreach ($dtkdoutput as $output)
+                        <option value="{{$output->kdoutput}}" @if($output->kdoutput == $data_paket->kdoutput) selected @endif>{{$output->nmoutput}}</option>                            
+                    @endforeach
+                </select>                
             </div>
             <label class="form-group">
                 <label for="ta">Tahun</label>

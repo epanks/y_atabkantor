@@ -11,6 +11,12 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Daftar Balai</h3>
+                <div class="card-tools">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#addNew">
+                    <a href="{{ route('paket.create')}}"> Add New></a>
+                        <i class="fas fa-user-plus fa-fw"></i>
+                    </button>
+                </div>
             </div>
         
             <div class="card-body table-responsive p-0">
@@ -39,15 +45,15 @@
                                 
                             <td>{{++$no}}</td>
                             <td>{{$paket->satker->nmsatker}}</td>
-                            <td><a href="#">{{$paket->nmpaket}}</td>
+                            <td><a href="/paket/{{$paket->id}}/show">{{$paket->nmpaket}}</td>
                             <td class="text-right">{{number_format($paket->pagurmp)}}</td>
                             <td>{{number_format($paket->trgoutput)}}</td>
-                            <td>{{$paket->tblsatoutputs->nmsatoutput}}</td>
+                            <td>{{$paket->tblsatoutput->nmsatoutput}}</td>
                             <td>{{number_format($paket->trgoutcome)}}</td>
                             <td>{{$paket->satoutcome}}</td>
                             <td>{{$paket->paket7->progres_keu}}</td>
                             <td>{{$paket->paket7->progres_fisik}}</td>
-                            <td>{{$paket->kdoutput}}</td>
+                            <td>{{$paket->tblkdoutput->nmoutput}}</td>
                             <td>
                                 <a href="/paket/{{$paket->id}}/edit">
                                     <i class="fa fa-edit blue"></i>
