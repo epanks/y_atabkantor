@@ -10,6 +10,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('{path}', 'HomeController@index')->where('path', '([A-z\d\-\/_.]+)?');
 
+
+
+Route::get('/balai','BalaiController@index');
+
+
+
+
+
+
 Route::get('/create_paket','PaketController@create')->name('paket.create');
 Route::post('/create_paket','PaketController@store');
 Route::get('/paket','PaketController@index');

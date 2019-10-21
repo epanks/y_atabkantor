@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Wilayah;
+use App\Balai;
+use App\Satker;
+use App\Paket;
+use App\Paket7;
 
 class HomeController extends Controller
 {
@@ -21,8 +26,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
     public function index()
     {
-        return view('home');
+        $paket = Paket::all();
+        $balai = Balai::all();
+        $satker = Satker::all();
+        $wilayah = Wilayah::all();
+        $paket7=Paket7::all();
+        //dd($paket7);
+        return view('home', compact('satker', 'balai','wilayah','paket','paket7'));
     }
 }
