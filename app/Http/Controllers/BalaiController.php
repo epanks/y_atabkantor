@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Balai;
+use App\Wilayah;
 
 class BalaiController extends Controller
 {
@@ -82,5 +83,13 @@ class BalaiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function wilayah($id)
+    {
+        $data_balai=Wilayah::with('balai')->find($id)->paginate(10);
+        //dd($data_balai);
+        return view('balai.wilayah', compact('data_balai'));
     }
 }

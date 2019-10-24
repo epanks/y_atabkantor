@@ -13,20 +13,11 @@
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-map"></i></span>                
                         <div class="info-box-content">
                             <span class="info-box-text">
-                                {{-- <a href="/wilayah"> --}}
                                     Wilayah
-                                {{-- </a> --}}
                             </span>
-                            <span class="info-box-number">
-                                        {{-- {{$wilayah->count()}}
-                                        <small>wilayah</small> <br/>   --}}
-                                        @foreach ($wilayah as $no => $wilayah)
-                                        <tr>                                            
-                                            <td>
-                                                <small><a href="/wilayah/{{$wilayah->id}}">{{++$no}}.{{$wilayah->nmwilayah}} </small><br/>                                         
-                                            </td>
-                                        </tr>    
-                                        @endforeach
+                            <span class="info-box-number">                                        
+                                <small><a href="/wilayah/{{$wilayah->id=1}}">1. Wilayah Barat </small><br/> 
+                                <small><a href="/wilayah/{{$wilayah->id=2}}">2. Wilayah Timur </small><br/>
                             </span>
                         </div>
                     </div>
