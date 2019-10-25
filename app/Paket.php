@@ -16,6 +16,11 @@ class Paket extends Model
         return number_format($this->attributes['pagurmp'], 2);
     }
 
+    public function balai()
+    {
+        return $this->belongsTo(Balai::class);
+    }
+
     public function paket7()
     {
         return $this->hasOne(Paket7::class);

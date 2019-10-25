@@ -3,21 +3,23 @@
 @section('content')
 <div class="content">
     <div class="box box-primary">
+        <div>
         <div class="box-body box-profile">
             <img class="profile-user-img img-responsive text-center" src="/img/logopu.jpg" alt="User profile picture">  
             <h1 class="profile-username text-center">Kementerian Pekerjaan Umum dan Perumahan Rakyat</h1>  
             <p class="text-muted text-center">Pusat Air Tanah dan Air Baku</p>
+        </div>
             <div class="row mt-5">
                 <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box">
+                    <div class="info-box mb-3">
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-map"></i></span>                
                         <div class="info-box-content">
                             <span class="info-box-text">
                                     Wilayah
                             </span>
                             <span class="info-box-number">                                        
-                                <small><a href="/wilayah/{{$wilayah->id=1}}">1. Wilayah Barat </small><br/> 
-                                <small><a href="/wilayah/{{$wilayah->id=2}}">2. Wilayah Timur </small><br/>
+                                <small><a href="/wilayah/{{$wilayah->id=1}}">1. Wilayah Barat</a> </small><br/> 
+                                <small><a href="/wilayah/{{$wilayah->id=2}}">2. Wilayah Timur</a></small>
                             </span>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
                             </div>
                         </div>
                     </div>
-                <div class="clearfix hidden-md-up"></div>
+                {{-- <div class="clearfix hidden-md-up"></div> --}}
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>

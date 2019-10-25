@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Balai;
 use App\Wilayah;
+use App\Satker;
+use DB;
 
 class BalaiController extends Controller
 {
@@ -88,8 +90,12 @@ class BalaiController extends Controller
 
     public function wilayah($id)
     {
-        $data_balai=Wilayah::with('balai')->find($id)->paginate(10);
-        //dd($data_balai);
-        return view('balai.wilayah', compact('data_balai'));
+        $wilayah=Wilayah::find($id);
+        $data_balai = Wilayah::find($id)->balai;
+        //$balaipaket = $data_balai->paket7;
+        $data_satker = Wilayah::find($id)->satker;
+        $listpaket =Wilayah::find($id)->paket; 
+        //dd($listpaket);
+        return view('balai.wilayah', compact('wilayah','data_balai','data_satker','listpaket'));
     }
 }

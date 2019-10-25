@@ -16,4 +16,14 @@ class Satker extends Model
     {
         return $this->hasMany(Paket::class,'kdsatker','kdsatker');
     }
+
+    public function balai()
+    {
+        return $this->belongsTo(Balai::class);
+    }
+    
+    public function wilayah()
+    {
+        return $this->belongsTo(Wilayah::class);
+    }
 }
