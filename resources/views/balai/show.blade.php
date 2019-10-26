@@ -12,7 +12,7 @@
 <div class="row mt-2">
     <div class="col-md-12">
         <h1 class="profile-username text-center">
-            {{$wilayah->nmwilayah}}
+            {{$show_balai->nmbalai}}
         </h1>  
     </div>
 </div>
@@ -27,28 +27,12 @@
             <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-building"></i></span>                
             <div class="info-box-content">
                 <span class="info-box-text">
-                    <a href="/wilayah/{{$wilayah->id}}">
-                        Jumlah Balai
-                    </a>
-                </span>
-                <span class="info-box-number">
-                    {{$data_balai->count()}}
-                    <small>balai</small> <br/>                                     
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-2">
-        <div class="info-box">
-            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-building"></i></span>                </br>
-            <div class="info-box-content">
-                <span class="info-box-text">
-                    <a href="/satker">
+                    <a href="#">
                         Jumlah Satker
                     </a>
                 </span>
                 <span class="info-box-number">
-                    {{$data_satker->count()}}
+                    {{$show_satker->count()}}
                     <small>satker</small> <br/>                                     
                 </span>
             </div>
@@ -56,16 +40,32 @@
     </div>
     <div class="col-12 col-sm-6 col-md-2">
         <div class="info-box">
-            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>                
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-list"></i></span>                </br>
             <div class="info-box-content">
-                <span class="info-box-text"><a href="/balai">Jumlah Paket</a></span>
+                <span class="info-box-text">
+                    <a href="#">
+                        Jumlah Paket
+                    </a>
+                </span>
                 <span class="info-box-number">
-                    {{$listpaket->count()}}
-                    <small>paket</small>
+                    {{$data_paket->count()}}
+                    <small>paket</small> <br/>                                     
                 </span>
             </div>
         </div>
     </div>
+    <!-- <div class="col-12 col-sm-6 col-md-2">
+        <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>                
+            <div class="info-box-content">
+                <span class="info-box-text"><a href="/balai">Jumlah Paket</a></span>
+                <span class="info-box-number">
+                    {{$data_paket->count()}}
+                    <small>paket</small>
+                </span>
+            </div>
+        </div>
+    </div> -->
     <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box">
             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-chart-line"></i></span>                
@@ -74,7 +74,7 @@
                     Progres Keuangan
                 </span>
                 <span class="info-box-number">
-                    {{$data_balai->count()}}
+                    {{$data_paket->count()}}
                     <small>%</small> <br/>                                     
                 </span>
             </div>
@@ -86,7 +86,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Progres Fisik</a></span>
                 <span class="info-box-number">
-                    {{$data_satker->count()}}
+                    {{$data_paket->count()}}
                     <small>%</small>
                 </span>
             </div>
@@ -96,7 +96,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Daftar Balai</h3>
+                <h3 class="card-title">Daftar Satker</h3>
             </div>        
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
@@ -113,10 +113,10 @@
                             
                         </tr>
 
-                    @foreach ($data_balai as $no => $balai)                      
+                    @foreach ($show_satker as $no => $satker)                      
                         <tr>
                             <td>{{++$no}}</td>
-                            <td><a href="/balai/{{$balai->id}}/show">{{$balai->nmbalai}}</td>
+                            <td><a href="#">{{$satker->nmsatker}}</td>
                             <td></td>
                             <td></td>
                             <td></td>

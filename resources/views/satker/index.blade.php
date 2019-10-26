@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Daftar Balai</h3>
+                <h3 class="card-title">Daftar Satker</h3>
             </div>
         
             <div class="card-body table-responsive p-0">
@@ -29,11 +29,11 @@
                             
                         </tr>
 
-                    @foreach ($data_balai as $no => $balai)  
+                    @foreach ($data_satker as $no => $satker)  
                     
                         <tr>
-                            <td>{{++$no}}</td>
-                            <td><a href="/satker/{{$balai->id}}">{{$balai->nmbalai}}</td>
+                            <td>{{$satker->id}}</td>
+                            <td><a href="/satker/{{$satker->id}}">{{$satker->nmsatker}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -46,7 +46,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{$data_balai->links()}}
+                {{$data_satker->links()}}
             </div>
         
         </div>

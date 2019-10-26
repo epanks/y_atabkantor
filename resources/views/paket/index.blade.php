@@ -6,6 +6,7 @@
         {{session('sukses')}}
     </div>
 @endif
+
 <div class="row mt-5">
     <div class="col-md-12">
         <div class="card">
@@ -40,10 +41,8 @@
 
                     @foreach ($data_paket as $no => $paket)  
                     
-                        <tr>
-                            {{-- @foreach ($data_paket7 as $paket7) --}}
-                                
-                            <td>{{++$no}}</td>
+                        <tr>                            
+                            <td>{{$paket->id}}</td>
                             <td>{{$paket->satker->nmsatker}}</td>
                             <td><a href="/paket/{{$paket->id}}/show">{{$paket->nmpaket}}</td>
                             <td class="text-right">{{number_format($paket->pagurmp)}}</td>
@@ -62,11 +61,9 @@
                                 <a href="/paket/{{$paket->id}}/delete">
                                     <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
                                 </a>
-                            </td>                            
-                            {{-- @endforeach --}}
+                            </td>
                         </tr>
-                        
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
                 {{$data_paket->links()}}
