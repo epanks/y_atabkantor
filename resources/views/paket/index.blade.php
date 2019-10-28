@@ -43,7 +43,7 @@
                         <tr>
                             {{-- @foreach ($data_paket7 as $paket7) --}}
                                 
-                            <td>{{++$no}}</td>
+                            <td>{{$paket->id}}</td>
                             <td>{{$paket->satker->nmsatker}}</td>
                             <td><a href="/paket/{{$paket->id}}/show">{{$paket->nmpaket}}</td>
                             <td class="text-right">{{number_format($paket->pagurmp)}}</td>

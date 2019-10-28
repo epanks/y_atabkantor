@@ -63,7 +63,10 @@ class PaketController extends Controller
      */
     public function show($id)
     {
-        //
+        $data_paket = Satker::find($id);
+        //$data_progres=Paket::where('kdsatker','=','$id')->get();
+        //dd($data_progres);
+        return view('paket.show', compact('data_paket'));
     }
 
     /**
