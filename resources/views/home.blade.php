@@ -5,7 +5,9 @@
     <div class="box box-primary">
         <div>
         <div class="box-body box-profile">
+        <div class="row mt-3">
             <img class="profile-user-img img-responsive text-center" src="/img/logopu.jpg" alt="User profile picture">  
+        </div>  
             <h1 class="profile-username text-center">Kementerian Pekerjaan Umum dan Perumahan Rakyat</h1>  
             <p class="text-muted text-center">Pusat Air Tanah dan Air Baku</p>
         </div>

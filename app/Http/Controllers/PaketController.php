@@ -113,4 +113,12 @@ class PaketController extends Controller
     {
         //
     }
+
+    public function paketdashboard()
+    {
+        $paket_dashboard=Paket::with('paket7','tblsatoutput','satker','tblkdoutput','balai')->paginate(10);
+                   //->get(['id','nmpaket','pagurmp','trgoutput','satoutput','trgoutcome','satoutcome','kdoutput','progres_keu','progres_fisik']);
+        dd($paket_dashboard);
+        return view('paket.paketdashboard',compact('paket_dashboard'));
+    }
 }

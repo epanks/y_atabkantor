@@ -16,7 +16,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       .img-container {
         text-align: center;
       }
+      .pagination li{
+			float: left;
+			list-style-type: none;
+			margin:5px;
+		}
     </style>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -158,12 +164,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
-              {{-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-building nav-icon yellow"></i>
-                  <p>Balai</p>
+              <li class="nav-item">
+                <a href="/paketdashboard" class="nav-link">
+                  <i class="fas fa-list nav-icon yellow"></i>
+                  <p>Paket Dashboard</p>
                 </a>
-              </li> --}}
+              </li>
 
               <li class="nav-item">
                 <a href="/paket" class="nav-link">
