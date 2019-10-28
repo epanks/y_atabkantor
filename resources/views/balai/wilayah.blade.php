@@ -113,7 +113,7 @@
                             
                         </tr>
 
-                    @foreach ($data_balai as $no => $balai)                      
+                    @foreach ($wilayahall as $no => $balai)                      
                         <tr>
                             <td>{{++$no}}</td>
                             <td><a href="/balai/{{$balai->id}}/show">{{$balai->nmbalai}}</td>

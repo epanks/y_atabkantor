@@ -25,4 +25,5 @@ Route::post('/create_paket','PaketController@store');
 Route::get('/paket','PaketController@index');
 Route::get('/paket/{id}/edit', 'PaketController@edit');
 Route::post('/paket/{id}/update', 'PaketController@update');
+Route::get('/paket/{id}', 'PaketController@show');
 
