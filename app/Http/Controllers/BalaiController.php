@@ -114,13 +114,13 @@ class BalaiController extends Controller
             ->join('satker','balai.id','=','satker.balai_id')
             ->join('paket','satker.kdsatker','=','paket.kdsatker')
             ->join('paket7','paket.id','=','paket7.id')
-            ->select('wilayah.*','balai.*','satker.*','paket.*','paket7.*')
+            ->select('wilayah.*','balai.*','satker.*','paket.*')
             //->groupBy('balai.id','balai.nmbalai')
-            ->groupBy('balai.id','balai.nmbalai')
+            //->groupBy('balai.id','balai.nmbalai')
             ->paginate(10);
 
 
-        dd($wilayahall);
+        //dd($wilayahall);
         return view('balai.wilayah', compact('wilayah','data_balai','data_satker','listpaket','wilayahall'));
     }
 }

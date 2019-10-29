@@ -128,6 +128,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{$wilayahall->links()}}
             </div>        
         </div>       
     </div>    
