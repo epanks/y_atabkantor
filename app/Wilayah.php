@@ -32,4 +32,12 @@ class Wilayah extends Model
          'kdsatker'   
         ]); 
     }
+    public function getIds()
+    {
+        $ids =  [$this->id];
+        foreach ($this->children as $child) {
+            $ids = array_merge($ids, $child->getIds());
+        }
+        return $ids;
+    }
 }

@@ -99,12 +99,28 @@ class BalaiController extends Controller
 
     public function wilayah($id)
     {
+        
+        
         $wilayah=Wilayah::find($id);
         $data_balai = Wilayah::find($id)->balai;
         //$balaipaket = $data_balai->paket;
         $data_satker = Wilayah::find($id)->satker;
         $listpaket =Wilayah::find($id)->paket; 
-        //dd($datapaket);
-        return view('balai.wilayah', compact('wilayah','data_balai','data_satker','listpaket'));
+        $idpaket=$listpaket->pluck('id');
+        
+        //$data_paket7=Paket7::with('$idpaket');
+        $wilayahall=DB::table('wilayah')
+            ->join('balai','wilayah.id','=','balai.wilayah_id')
+            ->join('satker','balai.id','=','satker.balai_id')
+            ->join('paket','satker.kdsatker','=','paket.kdsatker')
+            ->join('paket7','paket.id','=','paket7.id')
+            ->select('wilayah.*','balai.*','satker.*','paket.*','paket7.*')
+            //->groupBy('balai.id','balai.nmbalai')
+            ->groupBy('balai.id','balai.nmbalai')
+            ->paginate(10);
+
+
+        dd($wilayahall);
+        return view('balai.wilayah', compact('wilayah','data_balai','data_satker','listpaket','wilayahall'));
     }
 }
