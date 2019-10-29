@@ -55,10 +55,12 @@ class BalaiController extends Controller
         $show_balai=Balai::find($id);
         $show_satker=$show_balai->satker;
         $data_paket=$show_balai->paket;
-        $data_progres=($data_paket) ? $data_paket->paket7:'progres_keu';
-        dd($data_progres);
+        //$data_progres=($data_paket) ? $data_paket->paket7:'progres_keu';
+        //dd($data_progres);
         return view ('balai.show',compact('show_balai','show_satker','data_paket'));
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -12,8 +12,15 @@
 <div class="row mt-2">
     <div class="col-md-12">
         <h1 class="profile-username text-center">
-            {{$wilayah->nmwilayah}}
+            {{$paket_dashboard->nmpaket}}
         </h1>  
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-12">
+        <h5 class="text-muted text-center">
+            {{$paket_dashboard->satker->nmsatker}}
+        </h5>  
     </div>
 </div>
 <div class="row mt-2">
@@ -22,59 +29,46 @@
     </div>
 </div>
 <div class="row mt-2">
-    <div class="col-12 col-sm-6 col-md-2">
+    <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box">
-            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-building"></i></span>                
+            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-dollar-sign"></i></span>                
             <div class="info-box-content">
                 <span class="info-box-text">
-                    <a href="/wilayah/{{$wilayah->id}}">
-                        Jumlah Balai
+                        Pagu
                     </a>
                 </span>
                 <span class="info-box-number">
-                    {{$data_balai->count()}}
-                    <small>balai</small> <br/>                                     
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-2">
-        <div class="info-box">
-            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-building"></i></span>                </br>
-            <div class="info-box-content">
-                <span class="info-box-text">
-                    <a href="/satker">
-                        Jumlah Satker
-                    </a>
-                </span>
-                <span class="info-box-number">
-                    {{$data_satker->count()}}
-                    <small>satker</small> <br/>                                     
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-2">
-        <div class="info-box">
-            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>                
-            <div class="info-box-content">
-                <span class="info-box-text"><a href="/balai">Jumlah Paket</a></span>
-                <span class="info-box-number">
-                    {{$listpaket->count()}}
-                    <small>paket</small>
+                    <small>Rp.</small>                                     
+                    {{number_format($paket_dashboard->pagurmp)}}
                 </span>
             </div>
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box">
-            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-chart-line"></i></span>                
+            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-dollar-sign"></i></span>                
             <div class="info-box-content">
-                <span class="info-box-text">                
-                    Progres Keuangan
+                <span class="info-box-text">
+                        Keuangan
+                    </a>
                 </span>
                 <span class="info-box-number">
-                    {{$data_balai->count()}}
+                    <small>Rp.</small>                                     
+                    {{number_format($paket_dashboard->pagurmp)}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-chart-line"></i></span>                </br>
+            <div class="info-box-content">
+                <span class="info-box-text">
+                        Progres Keuangan
+                    </a>
+                </span>
+                <span class="info-box-number">
+                    {{$paket_dashboard->paket7->progres_keu}}
                     <small>%</small> <br/>                                     
                 </span>
             </div>
@@ -82,12 +76,38 @@
     </div>
     <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-chart-bar"></i></span>                
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-chart-bar"></i></span>                
             <div class="info-box-content">
                 <span class="info-box-text">Progres Fisik</a></span>
                 <span class="info-box-number">
-                    {{$data_satker->count()}}
+                        {{$paket_dashboard->paket7->progres_fisik}}
                     <small>%</small>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-sign-out-alt"></i></span>                
+            <div class="info-box-content">
+                <span class="info-box-text">                
+                    Output
+                </span>
+                <span class="info-box-number">
+                        {{$paket_dashboard->trgoutput}}
+                    <small>{{$paket_dashboard->tblsatoutput->nmsatoutput}}</small> <br/>                                     
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-tint"></i></span>                
+            <div class="info-box-content">
+                <span class="info-box-text">Outcome</a></span>
+                <span class="info-box-number">
+                        {{$paket_dashboard->trgoutcome}}
+                    <small>{{$paket_dashboard->tblsatoutput->nmsatoutput}}</small>
                 </span>
             </div>
         </div>
@@ -96,7 +116,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Daftar Balai</h3>
+                <h3 class="card-title">Note</h3>
             </div>        
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
@@ -113,13 +133,13 @@
                             
                         </tr>
 
-                    @foreach ($data_balai as $no => $balai)                      
+                    @foreach ($paket_dashboard as $no => $balai)                      
                         <tr>
                             <td>{{++$no}}</td>
-                            <td><a href="/balai/{{$balai->id}}/show">{{$balai->nmbalai}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="#">{{$balai->nmpaket}}</td>
+                            <td class="text-right">{{number_format(($balai->pagurmp),0)}}</td>
+                            <td>{{number_format(($balai->paket7->progres_keu),2)}}</td>
+                            <td>{{number_format(($balai->paket7->progres_fisik),2)}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -128,6 +148,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{$paket_dashboard->links()}}
             </div>        
         </div>       
     </div>    

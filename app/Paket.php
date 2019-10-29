@@ -39,5 +39,9 @@ class Paket extends Model
     {
         return $this->hasOne(Tblkdoutput::class,'kdoutput','kdoutput');
     }
+    public function masalah()
+    {
+        return $this->hasMany(Masalah::class);
+    }
 
 }

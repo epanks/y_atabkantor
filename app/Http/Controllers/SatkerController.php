@@ -47,7 +47,11 @@ class SatkerController extends Controller
      */
     public function show($id)
     {
-        //
+        $show_satker=Satker::find($id);
+        $show_paket=$show_satker->paket;
+        //$data_progres=($data_paket) ? $data_paket->paket7:'progres_keu';
+        //dd($data_progres);
+        return view ('satker.show',compact('show_satker','show_paket'));
     }
 
     /**

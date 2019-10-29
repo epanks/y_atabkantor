@@ -8,7 +8,8 @@ use App\Tblsatoutput;
 use App\Satker;
 use App\Tblkdoutput;
 use App\Paket7;
-//use DB;
+use App\Masalah;
+use DB;
 
 class PaketController extends Controller
 {
@@ -114,11 +115,14 @@ class PaketController extends Controller
         //
     }
 
-    public function paketdashboard()
+    public function paketdashboard($id)
     {
-        $paket_dashboard=Paket::with('paket7','tblsatoutput','satker','tblkdoutput','balai')->paginate(10);
+        //$paket_dashboard=Paket::find($id)->with('paket7','tblsatoutput','satker','tblkdoutput','balai')->first();
+        $paket_masalah=Paket::find($id);
+        $paket_masalah1=$paket_masalah->masalah;
+        //$paket_masalah=Masalah::where('paket_id','$id')->get();
                    //->get(['id','nmpaket','pagurmp','trgoutput','satoutput','trgoutcome','satoutcome','kdoutput','progres_keu','progres_fisik']);
-        dd($paket_dashboard);
+        dd($paket_masalah1);
         return view('paket.paketdashboard',compact('paket_dashboard'));
     }
 }

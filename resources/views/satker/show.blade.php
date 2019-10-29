@@ -12,7 +12,7 @@
 <div class="row mt-2">
     <div class="col-md-12">
         <h1 class="profile-username text-center">
-            {{$show_balai->nmbalai}}
+            {{$show_satker->nmsatker}}
         </h1>  
     </div>
 </div>
@@ -21,23 +21,7 @@
         <p class="text-muted text-center">Pusat Air Tanah dan Air Baku</p>
     </div>
 </div>
-<div class="row mt-2">
-    <div class="col-12 col-sm-6 col-md-2">
-        <div class="info-box">
-            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-building"></i></span>                
-            <div class="info-box-content">
-                <span class="info-box-text">
-                    <a href="#">
-                        Jumlah Satker
-                    </a>
-                </span>
-                <span class="info-box-number">
-                    {{$show_satker->count()}}
-                    <small>satker</small> <br/>                                     
-                </span>
-            </div>
-        </div>
-    </div>
+<div class="row mt-2">    
     <div class="col-12 col-sm-6 col-md-2">
         <div class="info-box">
             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-list"></i></span>                </br>
@@ -48,24 +32,13 @@
                     </a>
                 </span>
                 <span class="info-box-number">
-                    {{$data_paket->count()}}
+                    {{$show_paket->count()}}
                     <small>paket</small> <br/>                                     
                 </span>
             </div>
         </div>
     </div>
-    <!-- <div class="col-12 col-sm-6 col-md-2">
-        <div class="info-box">
-            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>                
-            <div class="info-box-content">
-                <span class="info-box-text"><a href="/balai">Jumlah Paket</a></span>
-                <span class="info-box-number">
-                    {{$data_paket->count()}}
-                    <small>paket</small>
-                </span>
-            </div>
-        </div>
-    </div> -->
+   
     <div class="col-12 col-sm-6 col-md-3">
         <div class="info-box">
             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-chart-line"></i></span>                
@@ -74,7 +47,7 @@
                     Progres Keuangan
                 </span>
                 <span class="info-box-number">
-                    {{$data_paket->count()}}
+                    {{$show_paket->count()}}
                     <small>%</small> <br/>                                     
                 </span>
             </div>
@@ -86,7 +59,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Progres Fisik</a></span>
                 <span class="info-box-number">
-                    {{$data_paket->count()}}
+                    {{$show_paket->count()}}
                     <small>%</small>
                 </span>
             </div>
@@ -113,10 +86,13 @@
                             
                         </tr>
 
-                    @foreach ($show_satker as $no => $satker)                      
+                    @foreach ($show_paket as $no => $paket)                      
                         <tr>
                             <td>{{++$no}}</td>
-                            <td><a href="/satker/{{$satker->id}}/show">{{$satker->nmsatker}}</td>
+                            <td><a href="/paketdashboard/{{$paket->id}}">{{$paket->nmpaket}}</td>
+                            <td class="text-right">{{number_format(($paket->pagurmp),0)}}</td>
+                            <td>{{number_format(($paket->paket7->progres_keu),2)}}</td>
+                            <td>{{number_format(($paket->paket7->progres_fisik),2)}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -128,6 +104,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{-- {{$show_paket->links()}} --}}
             </div>        
         </div>       
     </div>    

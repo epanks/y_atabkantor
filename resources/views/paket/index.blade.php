@@ -41,13 +41,9 @@
 
                     @foreach ($data_paket as $no => $paket)  
                     
-<<<<<<< HEAD
                         <tr>
                             {{-- @foreach ($data_paket7 as $paket7) --}}
                                 
-=======
-                        <tr>                            
->>>>>>> 8d8d16d70001ec797ea027f0bdeb7be336a0263a
                             <td>{{$paket->id}}</td>
                             <td>{{$paket->satker->nmsatker}}</td>
                             <td><a href="/paket/{{$paket->id}}/show">{{$paket->nmpaket}}</td>
